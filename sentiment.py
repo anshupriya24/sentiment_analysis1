@@ -8,6 +8,7 @@ Created on Wed Oct 11 21:45:47 2023
 from flask import Flask, request, jsonify
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
+from flask_cors import CORS
 import pickle
 
 app = Flask(__name__)
@@ -41,3 +42,5 @@ def preprocess_text(text):
 
 if __name__=='__main__':
     app.run()
+    
+CORS(app)
