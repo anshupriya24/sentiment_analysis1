@@ -19,10 +19,10 @@ with open('sentiment_model.pkl', 'rb') as model_file:
 def welcome():
     return "Sentiment Analysis"
     
-@app.route('/predict_sentiment', methods=["POST"])
+@app.route('/predict_sentiment', methods=["GET"])
 def predict_sentiment():
     try:
-        input_text = request.json['text']
+        input_text = 'I am very proud of my sister'
         cleaned_new_text = preprocess_text(input_text)
         input_vector = tfidf_vectorizer.transform([cleaned_new_text])
         predicted_sentiment = clf.predict(input_vector)[0]
